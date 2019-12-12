@@ -1,10 +1,13 @@
 import numpy as np
 import tensorflow as tf
 import random
+
 n_batch = None
-lr = 0.01
+
 n_step = 10000
 n_log = 1000
+
+lr = 0.01
 
 
 def weight_variable(shape):
