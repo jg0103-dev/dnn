@@ -3,6 +3,8 @@ import tensorflow as tf
 import random
 n_batch = None
 lr = 0.01
+n_step = 10000
+n_log = 1000
 
 
 def weight_variable(shape):
@@ -36,14 +38,16 @@ train = optimizer.minimize(cost)
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 
-for step in range(10000):
+for step in range(n_step):
 
     index = random.randint(0, np_x.shape[0]-1)
     sess.run(train, feed_dict={X: np_x, Y: np_y})
 
-    if step % 1000 == 0:
+    if step % n_log == 0:
+
         if step == 0:
             continue
+
         print(str(step)+'\t\t\t'+str(round(sess.run(cost, feed_dict={X: [np_x[index]], Y: [np_y[index]]}), 3)))
 
 tdata = [[1, 0], [1, 1]]
