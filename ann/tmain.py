@@ -7,7 +7,7 @@ n_batch = None
 n_step = 10000
 n_log = 1000
 
-lr = 0.01
+lr = 0.001
 
 
 def weight_variable(shape):
@@ -26,11 +26,11 @@ np_y = np.array([[0], [1], [0], [1]], dtype=np.float32)
 X = tf.placeholder(tf.float32, shape=[n_batch, 2])
 Y = tf.placeholder(tf.float32, shape=[n_batch, 1])
 
-W1 = weight_variable([2, 2])
-b1 = bias_variable([2])
+W1 = weight_variable([2, 20])
+b1 = bias_variable([20])
 tf_out = tf.nn.sigmoid(tf.matmul(X, W1)+b1)
 
-W2 = weight_variable([2, 1])
+W2 = weight_variable([20, 1])
 b2 = bias_variable([1])
 tf_out = tf.nn.sigmoid(tf.matmul(tf_out, W2)+b2)
 cost = -tf.reduce_mean(Y * tf.log(tf_out) + (1 - Y) * tf.log(1 - tf_out))
