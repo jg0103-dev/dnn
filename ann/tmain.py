@@ -6,7 +6,6 @@ n_batch = None
 
 n_step = 10000
 n_log = 1000
-
 lr = 0.001
 
 
